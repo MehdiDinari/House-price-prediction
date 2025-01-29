@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Page</title>
+    {% load static %}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: url('{% static "image.jpg" %}') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 90%;
+            width: 500px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        h1, h2 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            text-transform: uppercase;
+            background: linear-gradient(45deg, #ff9966, #ff5e62);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 94, 98, 0.4);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: linear-gradient(45deg, #ff5e62, #ff9966);
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 94, 98, 0.6);
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .col-sm-4 {
+            flex: 1;
+            min-width: 200px;
+            max-width: 280px;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Please enter the following values:</h1>
+        <form action="result">
+            <div class="row">
+                <div class="col-sm-4" style="background-color:Bisque;">
+                    <p>Avg. Area Income</p>
+                    <input type="text" name="n1" required>
+                </div>
+                <div class="col-sm-4" style="background-color:DarkSeaGreen;">
+                    <p>Avg. Area House Age</p>
+                    <input type="text" name="n2" required>
+                </div>
+                <div class="col-sm-4" style="background-color:LightPink;">
+                    <p>Avg. Area Number of Rooms</p>
+                    <input type="text" name="n3" required>
+                </div>
+                <div class="col-sm-4" style="background-color:Turquoise;">
+                    <p>Avg. Area Number of Bedrooms</p>
+                    <input type="text" name="n4" required>
+                </div>
+                <div class="col-sm-4" style="background-color:RosyBrown;">
+                    <p>Avg. Area Population</p>
+                    <input type="text" name="n5" required>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <input type="submit" value="PREDICT" class="btn">
+            </div>
+        </form>
+        <br>
+        <div class="row">
+            <h2>{{ result2 }}</h2>
+        </div>
+    </div>
+</body>
+</html>
